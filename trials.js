@@ -23,7 +23,7 @@ const phoneNumbers = new Map([
 // Create User Info Display:
 
 // Add function to print account information 
-function accountInformation (name, number,businessName) {
+function accountInformation (name, number, businessName) {
   console.log('Account Holder Name:', name);
   console.log('Account Holder Number:', number);
   console.log('Business Name:', businessName);
@@ -42,8 +42,8 @@ function showAddresses (addresses) {
 
 function showPhoneNums(phoneNumbers) {
   console.log('Phone Numbers: ');
-  for (let i = 0; i < phoneNumbers.keys.length; i++) {
-    console.log(phoneNumbers.keys[i], ':', phoneNumbers.values[i]);
+  for (const[key, values] of phoneNumbers) {
+    console.log(key, values);
   }
 }
 
@@ -52,15 +52,34 @@ function showPhoneNums(phoneNumbers) {
 // Transactions:
 
 // Create an empty map of transactions
-
+const transactions = new Map();
 
 // Add function to add transactions
+function addTransaction(newTransaction){
+  console.log(newTransaction)
+  const [date, amount] = newTransaction;
 
+  transactions.set(date,amount);
+  console.log(transactions.entries());
+}
 
 // Use the function to add transactions
 
 
 // Add function to show balance status
+
+function showBalanceStatus(amount){
+  console.log('Balance :', amount);
+  if (amount<0){
+    console.log('YOU ARE OVERDRAWN');
+  }
+  if (amount>0 && amount<20){
+    console.log('Warning: You are close to zero balance.');
+  }
+  else{
+    console.log('Thank you for you business');
+  }
+}
 
 
 // Add function to show transactions
